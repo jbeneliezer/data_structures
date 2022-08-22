@@ -1,5 +1,5 @@
-#ifndef LINKED_LIST
-#define LINKED_LIST
+#ifndef LINKED_LIST_H_
+#define LINKED_LIST_H_
 
 #include <iostream>
 #include <vector>
@@ -8,8 +8,9 @@ using namespace std;
 
 template <typename T> struct Node {
   T value;
-  Node *next;
+  Node<T> *next;
   Node(T v = 0, Node<T> *n = nullptr) : value(v), next(n) {}
+  inline bool operator==(Node<T> other) { return value == other->value; }
 };
 
 template <typename T> class LinkedList {

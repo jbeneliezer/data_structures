@@ -1,7 +1,5 @@
-#ifndef DOUBLE_LINKED_LIST
-#define DOUBLE_LINKED_LIST
-
-#include "LinkedList.h"
+#ifndef DOUBLE_LINKED_LIST_H_
+#define DOUBLE_LINKED_LIST_H_
 
 #include <iostream>
 #include <vector>
@@ -14,6 +12,7 @@ template <typename T> struct DNode {
   DNode *prev;
   DNode(T v = 0, DNode<T> *n = nullptr, DNode<T> *p = nullptr)
       : value(v), next(n), prev(p) {}
+  inline bool operator==(DNode<T> *other) { return (value == other->value); }
 };
 
 template <typename T> class DoubleLinkedList {
@@ -26,7 +25,7 @@ public:
   DoubleLinkedList(T);
   DoubleLinkedList(vector<T>);
   constexpr size_t size();
-  T at(Node<T> *) const;
+  T at(DNode<T> *) const;
   void push_back(T);
   void insert(DNode<T> *, T);
   void remove(DNode<T> *);
@@ -57,7 +56,7 @@ template <typename T> constexpr size_t DoubleLinkedList<T>::size() {
   return sum;
 }
 
-template <typename T> T DoubleLinkedList<T>::at(Node<T> *n) const {
+template <typename T> T DoubleLinkedList<T>::at(DNode<T> *n) const {
   if (!n)
     return 0;
   return n->value;

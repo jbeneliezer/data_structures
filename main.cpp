@@ -1,3 +1,4 @@
+#include "AVLTree.h"
 #include "BinarySearchTree.h"
 #include "BinaryTree.h"
 #include "DoubleLinkedList.h"
@@ -13,6 +14,7 @@ int main(int argc, char **argv) {
   DoubleLinkedList<int> dl(test);
   BinaryTree<int> bt(0);
   BinarySearchTree<int> bst(0);
+  AVLTree<int> avl(0);
 
   return 0;
 }
